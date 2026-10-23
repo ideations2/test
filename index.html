@@ -3,39 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#020817" />
     <title>Commit Live Preview</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <div class="app-shell">
       <header class="topbar">
-        <div>
+        <div class="brand-wrap">
           <p class="eyebrow">GitHub commit explorer</p>
           <h1>Commit Live Preview</h1>
         </div>
-        <a
-          class="source-link"
-          href="https://github.com/ideations2/test"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Repo: ideations2/test
-        </a>
+
+        <div class="top-actions">
+          <button
+            id="github-oauth"
+            class="ghost"
+            type="button"
+            title="GitHub OAuth is not available on GitHub Pages; this button is informational only."
+          >
+            Connect GitHub
+          </button>
+          <button id="logout-btn" class="ghost hidden" type="button">Log out</button>
+        </div>
       </header>
+
+      <section class="session-card">
+        <div class="status-row">
+          <span class="pill" id="auth-pill">Public mode</span>
+          <span id="user-label" class="user-label">Public GitHub Pages mode</span>
+        </div>
+
+        <div class="token-box">
+          <label for="token-input">Optional PAT for private repo access</label>
+          <div class="token-row">
+            <input id="token-input" type="password" placeholder="ghp_... or fine-grained PAT" />
+            <button id="save-token-btn" type="button">Save token</button>
+          </div>
+        </div>
+      </section>
 
       <form id="commit-form" class="toolbar">
         <label>
-          <span>Repo</span>
+          <span>Repository</span>
           <input id="repo-input" type="text" value="ideations2/test" placeholder="owner/repo" />
         </label>
+
         <label>
-          <span>Commit / branch</span>
-          <input id="commit-input" type="text" value="main" placeholder="main, HEAD, or a SHA" />
+          <span>Branch / tag / commit</span>
+          <input id="ref-input" type="text" value="main" placeholder="main, HEAD, or a SHA" />
         </label>
-        <button type="submit">Load commit</button>
+
+        <button type="submit" class="primary">Load commit</button>
       </form>
 
-      <div id="status" class="status">Ready to inspect a commit.</div>
+      <div id="status" class="status neutral">Ready to inspect a commit.</div>
 
       <div class="panel-grid">
         <aside class="panel panel-left">
@@ -57,7 +79,11 @@
           </div>
 
           <div id="preview-wrapper" class="preview-wrapper">
-            <iframe id="preview-frame" title="Live app preview" sandbox="allow-scripts allow-same-origin allow-forms allow-modals"></iframe>
+            <iframe
+              id="preview-frame"
+              title="Live app preview"
+              sandbox="allow-scripts allow-forms allow-modals"
+            ></iframe>
           </div>
 
           <div id="code-viewer" class="code-viewer hidden">
