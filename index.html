@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Commit Live Preview</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">GitHub commit explorer</p>
+          <h1>Commit Live Preview</h1>
+        </div>
+        <a
+          class="source-link"
+          href="https://github.com/ideations2/test"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Repo: ideations2/test
+        </a>
+      </header>
+
+      <form id="commit-form" class="toolbar">
+        <label>
+          <span>Repo</span>
+          <input id="repo-input" type="text" value="ideations2/test" placeholder="owner/repo" />
+        </label>
+        <label>
+          <span>Commit / branch</span>
+          <input id="commit-input" type="text" value="main" placeholder="main, HEAD, or a SHA" />
+        </label>
+        <button type="submit">Load commit</button>
+      </form>
+
+      <div id="status" class="status">Ready to inspect a commit.</div>
+
+      <div class="panel-grid">
+        <aside class="panel panel-left">
+          <section>
+            <h2>Commit details</h2>
+            <div id="commit-meta" class="meta-box empty-state">No commit loaded.</div>
+          </section>
+
+          <section>
+            <h2>File tree</h2>
+            <div id="tree" class="tree empty-state">No files loaded.</div>
+          </section>
+        </aside>
+
+        <main class="panel panel-right">
+          <div class="preview-header">
+            <h2>Live app preview</h2>
+            <button id="toggle-view" class="secondary" type="button">Show code</button>
+          </div>
+
+          <div id="preview-wrapper" class="preview-wrapper">
+            <iframe id="preview-frame" title="Live app preview" sandbox="allow-scripts allow-same-origin allow-forms allow-modals"></iframe>
+          </div>
+
+          <div id="code-viewer" class="code-viewer hidden">
+            <div class="code-header">
+              <span id="active-file-label">No file selected</span>
+            </div>
+            <pre id="code-content" class="code-content">Select a file from the tree to inspect its contents.</pre>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
