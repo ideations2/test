@@ -3,13 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#020817" />
     <title>Commit Live Preview</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <div class="app-shell">
       <header class="topbar">
-        <div>
+        <div class="brand-wrap">
           <p class="eyebrow">GitHub commit explorer</p>
           <h1>Commit Live Preview</h1>
         </div>
@@ -71,7 +72,11 @@
           </div>
 
           <div id="preview-wrapper" class="preview-wrapper">
-            <iframe id="preview-frame" title="Live app preview" sandbox="allow-scripts allow-same-origin allow-forms allow-modals"></iframe>
+            <iframe
+              id="preview-frame"
+              title="Live app preview"
+              sandbox="allow-scripts allow-forms allow-modals"
+            ></iframe>
           </div>
 
           <div id="code-viewer" class="code-viewer hidden">
