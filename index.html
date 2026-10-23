@@ -16,12 +16,7 @@
         </div>
 
         <div class="top-actions">
-          <button
-            id="github-oauth"
-            class="ghost"
-            type="button"
-            title="GitHub OAuth is not available on GitHub Pages; this button is informational only."
-          >
+          <button id="github-oauth" class="ghost" type="button" title="GitHub OAuth is not available on GitHub Pages; this button is informational only.">
             Connect GitHub
           </button>
           <button id="logout-btn" class="ghost hidden" type="button">Log out</button>
@@ -57,6 +52,20 @@
         <button type="submit" class="primary">Load commit</button>
       </form>
 
+      <div class="history-panel">
+        <div class="history-header">
+          <label for="history-select">Commit history</label>
+          <div class="history-nav">
+            <button type="button" id="history-prev" class="secondary small">Previous</button>
+            <button type="button" id="history-next" class="secondary small">Next</button>
+          </div>
+        </div>
+
+        <select id="history-select" aria-label="Select a commit from history">
+          <option value="">Loading commit history…</option>
+        </select>
+      </div>
+
       <div id="status" class="status neutral">Ready to inspect a commit.</div>
 
       <div class="panel-grid">
@@ -75,7 +84,10 @@
         <main class="panel panel-right">
           <div class="preview-header">
             <h2>Live app preview</h2>
-            <button id="toggle-view" class="secondary" type="button">Show code</button>
+            <div class="preview-actions">
+              <button id="toggle-view" class="secondary" type="button">Show code</button>
+              <button id="toggle-fullscreen" class="secondary" type="button">Full screen</button>
+            </div>
           </div>
 
           <div id="preview-wrapper" class="preview-wrapper">
