@@ -1,0 +1,24 @@
+{
+  "name": "commit-live-preview",
+  "version": "1.0.0",
+  "description": "GitHub commit previewer with OAuth/token auth and live app previews for any repo commit",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "github",
+    "oauth",
+    "preview",
+    "commit",
+    "repo"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0"
+  }
+}
